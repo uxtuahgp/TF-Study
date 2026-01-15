@@ -32,3 +32,11 @@ CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS  
 8e6e9c6c20fe   576306625d79   "/docker-entrypoint.…"   22 minutes ago   Up 22 minutes   0.0.0.0:9090->80/tcp   example_IbfGlmk7Y1hqkSV7  
 ```  
 #### 1.6 ####
+```
+oot@uxtu-note:~/Study/devops/tf/Ex1# docker ps  
+CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS         PORTS                  NAMES  
+ea9635e7baf4   576306625d79   "/docker-entrypoint.…"   6 seconds ago   Up 5 seconds   0.0.0.0:9090->80/tcp   hello_world  
+```
+Автоматическое приенение конфигурации без предварительного просмотра плана действий может привести к бесконтрольному внесению нежелательных изменений  
+Ключ может быть применен в пакетном режиме, если интерактивные действия не предполагаются, а код уже многократно проверен.  
+#### 1.7 ####  
