@@ -1,2 +1,3 @@
 ### Task 1 ###
-![tf-1-1.jpg]
+![Terraform installed](tf-1-1.jpg)
+
