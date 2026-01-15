@@ -51,3 +51,23 @@ resource "docker_container" "nginx" {
 Автоматическое приенение конфигурации без предварительного просмотра плана действий может привести к бесконтрольному внесению нежелательных изменений  
 Ключ может быть применен в пакетном режиме, если интерактивные действия не предполагаются, а код уже многократно проверен.  
 #### 1.7 ####  
+```
+root@uxtu-note:~/Study/devops/tf/Ex1# cat terraform.tfstate
+{  
+  "version": 4,  
+  "terraform_version": "1.12.2",  
+  "serial": 10,  
+  "lineage": "12ee300b-daf7-fd9c-1d58-351a436b469b",  
+  "outputs": {},  
+  "resources": [],  
+  "check_results": null  
+}  
+```
+#### 1.8 ####  
+Образ не был удален так как указана опция провайдера Docker  
+keep_locally = true  
+```
+keep_locally (Boolean) If true, then the Docker image won't be deleted on destroy operation. If this is false, it will delete the image from the docker local storage on destroy operation.   
+```
+
+
