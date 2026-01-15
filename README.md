@@ -37,6 +37,17 @@ oot@uxtu-note:~/Study/devops/tf/Ex1# docker ps
 CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS         PORTS                  NAMES  
 ea9635e7baf4   576306625d79   "/docker-entrypoint.…"   6 seconds ago   Up 5 seconds   0.0.0.0:9090->80/tcp   hello_world  
 ```
+```
+resource "docker_container" "nginx" {  
+  image = docker_image.nginx.image_id  
+#  name  = "example_${random_password.random_string.result}"  
+  name = "hello_world"  
+  
+  ports {  
+    internal = 80  
+    external = 9090  
+  }  
+```  
 Автоматическое приенение конфигурации без предварительного просмотра плана действий может привести к бесконтрольному внесению нежелательных изменений  
 Ключ может быть применен в пакетном режиме, если интерактивные действия не предполагаются, а код уже многократно проверен.  
 #### 1.7 ####  
