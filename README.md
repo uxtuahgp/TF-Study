@@ -71,6 +71,7 @@ keep_locally (Boolean) If true, then the Docker image won't be deleted on destro
 ```
 
 #### 2* ####
+![mysql.tf](mysql.tf)
 ```
 terraform {  
   required_providers {  
