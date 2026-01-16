@@ -127,3 +127,5 @@ resource "docker_container" "mysql" {
   env = [ "MYSQL_ROOT_PASSWORD=${random_password.mysql_root_pass.result}", "MYSQL_DATABASE=wordpress", "MYSQL_USER=wordpress", "MYSQL_PASSWORD=${random_password.mysql_user_pass.result}", "MYSQL_ROOT_HOST='%'" ]  
 }  
 ```  
+#### 3* ####
+Не удается выполнить код без изменений на tofu из-за того, что провайдеры другие как минимум
