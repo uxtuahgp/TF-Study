@@ -8,3 +8,4 @@
 ubuntu@fhmef04mvktfbchce8mg:~$ curl ifconfig.me  
 178.154.247.91  
 ```
+preemptible = true - означает, что машина прерываемая
