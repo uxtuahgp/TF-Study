@@ -153,19 +153,23 @@ Terraform has compared your real infrastructure against your configuration and f
 
 ```
 #### Task 7* ####
-1.```
+1.
+```
 > local.test_list[2]
 "production"
 ```  
-2. ```
+2.
+```
 > length(local.test_list)
 3
 ```  
-3. ```
+3.
+```
 > local.test_map.admin
 "John"
 ```  
-4. ```  
+4.
+```  
 > "${local.test_map.admin} is ${keys(local.test_map)[0]} for ${local.test_list[2]} server based on OS ${local.servers.production.image} with ${local.servers.production.cpu} CPUs, ${local.servers.production.ram} GB memory and ${length(local.servers.production.disks)} disks"
 "John is admin for production server based on OS ubuntu-20-04 with 10 CPUs, 40 GB memory and 4 disks"
 ```  
