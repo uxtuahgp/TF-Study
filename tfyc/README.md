@@ -111,4 +111,44 @@ variable  "vms_md" {
     ssh-keys           = "ubuntu:${var.vms_md.key}"
   }
 ```
+##### 6.3 #####
 
+```
+/*
+variable "vms_ssh_root_key" {
+  type        = string
+  default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJl7ngD4lOf7xiZ2aQ5B9arkVXXwQ0mQ0VJizRWEnutr root@uxtu-note"
+  description = "ssh-keygen -t ed25519"
+}
+*/
+```
+```
+  locals {
+  vm_web_name = "task-5-${var.vm_web_name}"
+#  vm_web_cores = "${var.vm_web_cores}"
+#  vm_web_memory = "${var.vm_web_memory}"
+#  vm_web_fraction = "${var.vm_web_fraction}"
+  vm_db_name = "task-5-${var.vm_db_name}"
+#  vm_db_cores = "${var.vm_db_cores}"
+#  vm_db_memory = "${var.vm_db_memory}"
+#  vm_db_fraction = "${var.vm_db_fraction}"
+}
+```
+
+##### 6.4 #####
+После коментирования в variables.tf и locals.tf изменений в проекте terraform plan не обнаружил  
+```
+alex@uxtu-note:~/Study/tfyc$ terraform plan
+data.yandex_compute_image.ubuntu: Reading...
+yandex_vpc_network.develop: Refreshing state... [id=enpqph8kl3u9kr7pv08e]
+data.yandex_compute_image.ubuntu: Read complete after 0s [id=fd807i1otb8jnlok99in]
+yandex_vpc_subnet.develop: Refreshing state... [id=e9bes0egel0lkdbubqll]
+yandex_vpc_subnet.develop_b: Refreshing state... [id=e2l6r8i04tl4044ifr97]
+yandex_compute_instance.db: Refreshing state... [id=epdbf2q7pejhspjblfii]
+yandex_compute_instance.platform: Refreshing state... [id=fhmetrtncarccucaq5vk]
+
+No changes. Your infrastructure matches the configuration.
+
+Terraform has compared your real infrastructure against your configuration and found no differences, so no changes are needed.
+
+```
