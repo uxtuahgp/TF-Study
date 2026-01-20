@@ -153,16 +153,15 @@ Terraform has compared your real infrastructure against your configuration and f
 
 ```
 #### Task 7* ####
-1.
-```   
+1.```
 > local.test_list[2]
 "production"
 ```  
-2. ```  
+2. ```
 > length(local.test_list)
 3
 ```  
-3. ```  
+3. ```
 > local.test_map.admin
 "John"
 ```  
