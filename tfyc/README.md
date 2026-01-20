@@ -43,4 +43,54 @@ locals {
   vm_db_fraction = "${var.vm_db_fraction}"
 }
 ```
+```
+Outputs:
+
+output_db_fqdn = "epdbf2q7pejhspjblfii.auto.internal"
+output_db_ip = "89.169.173.54"
+output_db_name = "task-5-netology-develop-platform-db"
+output_web_fqdn = "fhmetrtncarccucaq5vk.auto.internal"
+output_web_ip = "62.84.117.146"
+output_web_name = "task-5-netology-develop-platform-web"
+res = [
+  {
+    "cores" = 2
+    "fraction" = 20
+    "memory" = 4
+  },
+]
+```
+
 #### Task 6 ####
+### 6.1 ###
+Добавил переменную в variables.tf  
+```
+variable "vms_resources" {
+  type        = map
+  default     = {
+    web = {
+      cores         = 2
+      memory        = 2
+      fraction = 5
+    }
+    db = {
+      cores         = 2
+      memory        = 4
+      fraction = 20
+    }
+  }
+}
+```
+Заменил источник данных для атрибутов ресурсов в main.tf  
+```
+  resources {
+    cores         = var.vms_resources.db.cores
+    memory        = var.vms_resources.db.memory
+    core_fraction = var.vms_resources["db"].fraction
+#    cores         = local.vm_db_cores
+#    memory        = local.vm_db_memory
+#    core_fraction = local.vm_db_fraction
+  }
+```
+terraform apply после таких изменений в код не произвел никаких изменений в инфраструктуру  
+### 6.2 ###
