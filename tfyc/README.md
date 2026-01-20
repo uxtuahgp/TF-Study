@@ -94,3 +94,21 @@ variable "vms_resources" {
 ```
 terraform apply после таких изменений в код не произвел никаких изменений в инфраструктуру  
 ##### 6.2 #####
+Создал переменную, которая может использоваться не только с Ubuntu  
+```
+variable  "vms_md" {
+  type       = map
+  default    = {
+    serial  = 1
+    key     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJl7ngD4lOf7xiZ2aQ5B9arkVXXwQ0mQ0VJizRWEnutr root@uxtu-note"
+  }
+}
+```
+В main.tf заменил хардкод значениями из map  
+```
+  metadata = {
+    serial-port-enable = var.vms_md.serial
+    ssh-keys           = "ubuntu:${var.vms_md.key}"
+  }
+```
+
