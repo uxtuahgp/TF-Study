@@ -49,4 +49,47 @@ variable "each_vm" {
     }
   }
 ```  
-### 2.3 ###
+### 2.4 ###
+```
+resource "yandex_compute_instance" "web" {
+  depends_on = [ yandex_compute_instance.db]
+```
+### 2.5 ###
+```
+  metadata = {
+    serial-port-enable = var.vms_md.serial
+    ssh-keys           = "ubuntu:${file("~/.ssh/id_ecdsa.pub")}"
+  }
+```
+### 2.6 ###
+```
+yandex_vpc_network.develop: Creating...
+yandex_vpc_network.develop: Creation complete after 3s [id=enp814qeu8i7n0k7v3ul]
+yandex_vpc_subnet.develop: Creating...
+yandex_vpc_security_group.example: Creating...
+yandex_vpc_subnet.develop: Creation complete after 0s [id=e9b10i0n77nqpq9ltd7h]
+yandex_vpc_security_group.example: Creation complete after 2s [id=enpd5jonpa9640nsbkbm]
+yandex_compute_instance.db["0"]: Creating...
+yandex_compute_instance.db["1"]: Creating...
+yandex_compute_instance.db["0"]: Still creating... [00m10s elapsed]
+yandex_compute_instance.db["1"]: Still creating... [00m10s elapsed]
+yandex_compute_instance.db["0"]: Still creating... [00m20s elapsed]
+yandex_compute_instance.db["1"]: Still creating... [00m20s elapsed]
+yandex_compute_instance.db["0"]: Still creating... [00m30s elapsed]
+yandex_compute_instance.db["1"]: Still creating... [00m30s elapsed]
+yandex_compute_instance.db["1"]: Creation complete after 33s [id=fhmoeb9lp7kdhqpg0b6l]
+yandex_compute_instance.db["0"]: Still creating... [00m40s elapsed]
+yandex_compute_instance.db["0"]: Creation complete after 42s [id=fhm0p5m3m8doeav6hpve]
+yandex_compute_instance.web[1]: Creating...
+yandex_compute_instance.web[0]: Creating...
+yandex_compute_instance.web[1]: Still creating... [00m10s elapsed]
+yandex_compute_instance.web[0]: Still creating... [00m10s elapsed]
+yandex_compute_instance.web[1]: Still creating... [00m20s elapsed]
+yandex_compute_instance.web[0]: Still creating... [00m20s elapsed]
+yandex_compute_instance.web[1]: Creation complete after 28s [id=fhmf7ifedc5578efmn9t]
+yandex_compute_instance.web[0]: Still creating... [00m30s elapsed]
+yandex_compute_instance.web[0]: Creation complete after 33s [id=fhm0ujtnu0nj33abgd58]
+
+Apply complete! Resources: 7 added, 0 changed, 0 destroyed.
+```
+![for_each](tfyc-3-2.jpg)
