@@ -94,3 +94,47 @@ Apply complete! Resources: 7 added, 0 changed, 0 destroyed.
 ```
 ![for_each](tfyc-3-2.jpg)
 ## Task 3 ##  
+### 3.1 ###  
+```
+resource "yandex_compute_disk" "my_disks" {
+  count = 3
+  name = var.my_disks[count.index].name
+  type = var.my_disks[count.index].type
+  size = var.my_disks[count.index].size
+  zone = var.default_zone
+}
+```
+### 3.2 ###
+```
+  dynamic "secondary_disk" {
+    for_each = var.my_disks.*.name
+    content {
+      disk_id     = yandex_compute_disk.my_disks[secondary_disk.key].id
+      device_name = yandex_compute_disk.my_disks[secondary_disk.key].name
+      auto_delete = true  
+    }  
+  }
+```
+```
+      + secondary_disk {
+          + auto_delete = true
+          + device_name = "family"
+          + disk_id     = "fhm0nf1duut97kaf49ph"
+          + mode        = "READ_WRITE"
+        }
+      + secondary_disk {
+          + auto_delete = true
+          + device_name = "hobby"
+          + disk_id     = "fhm3baq23vjakpnb31vs"
+          + mode        = "READ_WRITE"
+        }
+      + secondary_disk {
+          + auto_delete = true
+          + device_name = "work"
+          + disk_id     = "fhm50l7bt7gmibf8sl3q"
+          + mode        = "READ_WRITE"
+        }
+```
+## Task 4 ##
+### 4.1. ###
+
