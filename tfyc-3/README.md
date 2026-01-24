@@ -93,3 +93,4 @@ yandex_compute_instance.web[0]: Creation complete after 33s [id=fhm0ujtnu0nj33ab
 Apply complete! Resources: 7 added, 0 changed, 0 destroyed.
 ```
 ![for_each](tfyc-3-2.jpg)
+## Task 3 ##  
