@@ -171,8 +171,6 @@ ${i["name"]}   ansible_host=${i["network_interface"][0]["nat_ip_address"]} fqdn=
 %{~ endfor ~}
 ```  
 ```
-
-```  
 $ cat hosts.ini 
 [webservers]
 
@@ -185,6 +183,8 @@ netology-develop-platform-db-replica   ansible_host=158.160.52.93 fqdn=fhmav4brf
 [storages]
 
 netology-develop-platform-storage   ansible_host=158.160.106.222 fqdn=fhm17cdnniqn62skae48.auto.internal
+
+```    
 
 ## 5* ##
 
