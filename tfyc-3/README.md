@@ -137,4 +137,54 @@ resource "yandex_compute_disk" "my_disks" {
 ```
 ## Task 4 ##
 ### 4.1. ###
+```
+resource "local_file" "hosts_templatefile" {
+  content = templatefile( "${path.module}/hosts.tftpl",
+    { webservers = yandex_compute_instance.web
+      databases  = yandex_compute_instance.db
+      storages   = [yandex_compute_instance.storage]
+    }
+  )
+
+  filename = "${abspath(path.module)}/hosts.ini"
+}
+```
+### 4.2 ###
+```
+[webservers]
+
+netology-develop-platform-web-1   ansible_host=158.160.113.27
+netology-develop-platform-web-2   ansible_host=158.160.120.42
+[databases]
+
+netology-develop-platform-db-main   ansible_host=130.193.36.189
+netology-develop-platform-db-replica   ansible_host=158.160.52.93
+[storages]
+
+netology-develop-platform-storage   ansible_host=158.160.106.222
+```  
+### 4.3 ###
+```  
+%{~ for i in webservers ~}
+
+${i["name"]}   ansible_host=${i["network_interface"][0]["nat_ip_address"]} fqdn=${i["fqdn"]} 
+%{~ endfor ~}
+```  
+```
+
+```  
+$ cat hosts.ini 
+[webservers]
+
+netology-develop-platform-web-1   ansible_host=158.160.113.27 fqdn=fhmvsu3vis4cn7ik1caa.auto.internal
+netology-develop-platform-web-2   ansible_host=158.160.120.42 fqdn=fhm5pnt44odcmg18en43.auto.internal
+[databases]
+
+netology-develop-platform-db-main   ansible_host=130.193.36.189 fqdn=fhmgqkjkdqh0uku669ds.auto.internal
+netology-develop-platform-db-replica   ansible_host=158.160.52.93 fqdn=fhmav4brfc3n9934b711.auto.internal
+[storages]
+
+netology-develop-platform-storage   ansible_host=158.160.106.222 fqdn=fhm17cdnniqn62skae48.auto.internal
+
+## 5* ##
 
