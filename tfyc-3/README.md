@@ -186,5 +186,4 @@ netology-develop-platform-storage   ansible_host=158.160.106.222 fqdn=fhm17cdnni
 
 ```    
 ![tf 03 result](tfyc-3-3.jpg)
-## 5* ##
 
