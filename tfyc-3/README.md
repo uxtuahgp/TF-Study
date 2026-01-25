@@ -185,6 +185,6 @@ netology-develop-platform-db-replica   ansible_host=158.160.52.93 fqdn=fhmav4brf
 netology-develop-platform-storage   ansible_host=158.160.106.222 fqdn=fhm17cdnniqn62skae48.auto.internal
 
 ```    
-
+![tf 03 result](tfyc-3-3.jpg)
 ## 5* ##
 
